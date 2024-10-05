@@ -1,7 +1,7 @@
 # CI de Nível 01 - Disparo automático em períodos definidos
 
 # Nome que vai aparecer nas opções
-name: 'Execução Manual'
+name: 'Execução Agendada'
 
 # Triggers ou gatilhos de execução
 # Gatilho de execução agendada = schedule
