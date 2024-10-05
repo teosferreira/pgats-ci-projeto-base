@@ -1,38 +1,29 @@
 # CI de Nível 01 - Disparo manual a partir de 1 clique
 
-# nome que vai aparecer la nas opções
+# Nome que vai aparecer nas opções
 name: 'Execução Manual'
 
-#triggers ou gatilhos de execução
-    #gatilho de exec manual = workflow_dispatch
-
+# Triggers ou gatilhos de execução
+# Gatilho de execução manual = workflow_dispatch
 on:
-   workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-
-   #d escricao do job
-   e2e-tests:
-
-   # maquina que o job vai executar
-   rubs-on: ['ubunt-latest']
-
-   # passo a passo das acoes do job
-   steps:
-        - uses: actions/checkout@v4
-
-    #  - uses: actions/setup-node@v4
-    #    with:
-    #       node-version: lts/* 
-    
-        - name: Instalando dependências
-          run: npm install -g yarn
-
-        - name: Instalando dependências
-          run: yarn
-
-        - name: Instalando Playwright
-          run: yarn playwright install
-
-        - name: Testes E2E (end-to-end)
-          run: yarn run e2e
+  # Descrição do job
+  e2e-tests:
+    # Máquina que o job vai executar
+    runs-on: ['ubuntu-latest']
+    # Passo a passo das ações do job
+    steps:
+      - uses: actions/checkout@v4
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: lts/*
+      - name: Instalando dependências (yarn global)
+        run: npm install -g yarn
+      - name: Instalando dependências
+        run: yarn
+      - name: Instalando Playwright
+        run: yarn playwright install
+      - name: Testes E2E (end-to-end)
+        run: yarn run e2e
